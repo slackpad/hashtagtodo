@@ -18,6 +18,9 @@ AUTH_SERVICES = {
 # Generate secure values for use in encrypting cookies.
 AUTH_SECRET = 'TODO'
 COOKIE_SECRET = 'TODO'
+
+# The ROOT_URL should be set to the full, public path to your instance
+# (eg. https://www.hashtagtodo.com).
 ROOT_URL = 'TODO'
 USER_AGENT = 'hashtagtodo-v1'
 
