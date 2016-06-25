@@ -1,0 +1,11 @@
+--- base/generated/python/authomatic/providers/__init__.py	2015-09-13 11:09:54.000000000 -0700
++++ patched/generated/python/authomatic/providers/__init__.py	2015-09-13 11:09:45.000000000 -0700
+@@ -371,7 +371,7 @@
+                 # Put querystring to body
+                 body = query
+                 query = None
+-                headers.update({'Content-Type': 'application/x-www-form-urlencoded'})
++                headers.update({'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'})
+         
+         request_path = urlparse.urlunsplit((None, None, path, query, None))
+         

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% include 'topnav.html' %}
+<div class="container">
+  <h3>Your Calendars</h3>
+  <p>These are all the Google Calendars linked with your account. You can choose to disable HashtagTodo for individual calendars here, and choose which calendars feed in to your special <strong>{{ g.user.first_name}} Todo List</strong> item that shows all your todos in one place. Hiding certain calendars might be useful if you share a calendar with someone who also uses HashtagTodo.</p>
+  <form class="form" style="padding-bottom: 20px;" role="form" action="/calendars" method="post">
+    <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+{% if g.user.is_premium %}
+    <div class="checkbox">
+      <label>
+        <input name="enable-todolist" type="checkbox" {% if g.user.enable_todolist %}checked{% endif %}> Enable the special <strong>{{ g.user.first_name}} Todo List</strong> item that shows all your todos at the top of your Google Calendar (only premium users can disable this)
+      </label>
+    </div>
+{% endif %}
+    <table class="table table-striped">
+      <thead>
+        <th>Calendar</th>
+        <th>Options</th>
+      </thead>
+      <tbody>
+{% for calendar in calendars %}
+        <tr>
+          <td>
+            {{ calendar.summary }}
+          </td>
+          <td>
+            <div class="checkbox">
+              <label>
+                <input name="active-{{ calendar.key.urlsafe() }}" type="checkbox" {% if calendar.active %}checked{% endif %}> Enabled
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input name="todolist-{{ calendar.key.urlsafe() }}" type="checkbox" {% if calendar.show_in_todolist %}checked{% endif %}> Show in Todo List
+              </label>
+            </div>
+          </td>
+        </tr>
+{% endfor %}
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-cta">Save changes</button>
+  </form>
+</div>
+{% endblock %}

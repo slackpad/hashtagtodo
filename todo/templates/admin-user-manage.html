@@ -1,0 +1,61 @@
+{% extends "admin.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h4>{{ manage_user.first_name }} {{ manage_user.last_name }} (<a href="mailto:{{ manage_user.email }}">{{ manage_user.email }}</a>)</h4>
+<table class="table">
+  <tbody>
+    <tr><td>Joined</td><td>{{ extra.created }} {% if not manage_user.was_goodbye_sent %}(<a href="#" onclick="$('#goodbye').submit(); return false;">send goodbye email</a>){% endif %}</td></tr>
+    <tr><td>Last Updated</td><td>{{ extra.updated }} (<a href="#" onclick="$('#sync').submit(); return false;">sync</a>)</td></tr>
+    <tr>
+      <td>
+        Admin Status
+      </td>
+      <td>
+        {% if manage_user.is_admin %}
+        user is an admin <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+        {% else %}
+        user is not an admin
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Premium Status
+      </td>
+      <td>
+        {% if manage_user.is_premium %}
+        user is premium <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> (<a href="#" onclick="$('#downgrade').submit(); return false;">downgrade</a>)
+        {% else %}
+        user is not premium (<a href="#" onclick="$('#upgrade').submit(); return false;">upgrade</a>)
+        {% endif %}
+      </td>
+    </tr>
+    <tr><td>"{{ manage_user.first_name }} Todo List" Enabled</td><td>{{ manage_user.enable_todolist }}</td></tr>
+    <tr><td>Calendars</td><td>{{ extra.calendars }}</td></tr>
+    <tr><td>Total Todos</td><td>{{ extra.todos }}</td></tr>
+    <tr><td>Completed Todos</td><td>{{ extra.completed }}</td></tr>
+  </tbody>
+</table>
+<form id="goodbye" method="post">
+  <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+  <input name="operation" type="hidden" value="goodbye">
+</form>
+<form id="sync" method="post">
+  <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+  <input name="operation" type="hidden" value="sync">
+</form>
+<form id="upgrade" method="post">
+  <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+  <input name="operation" type="hidden" value="upgrade">
+</form>
+<form id="downgrade" method="post">
+  <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+  <input name="operation" type="hidden" value="downgrade">
+</form>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

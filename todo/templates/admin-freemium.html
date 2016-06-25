@@ -1,0 +1,48 @@
+{% extends "admin.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h4>Create Freemium Users</h4>
+<div style="padding-bottom: 20px">
+  <form method="post">
+    <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+    <input name="operation" type="hidden" value="add">
+    <div class="form-group">
+      <textarea class="form-control" name="addresses" rows="3" placeholder="Any email addresses added here (separated by commas) will be automatically upgraded to premium the next time they sign up or sign in."></textarea>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-cta">Add Emails</button>
+    </div>
+  </form>
+</div>
+<h4>Existing Freemium Users</h4>
+<div>
+  <form method="post">
+    <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+    <input name="operation" type="hidden" value="remove">
+    <table class="table table-striped">
+      <tbody>
+{% for entry in entries %}
+        <tr>
+          <td>
+            <div class="checkbox">
+              <label>
+                <input name="remove-{{ entry }}" type="checkbox">{{ entry }}
+              </label>
+            </div>
+          </td>
+        </tr>
+{% endfor %}
+      </tbody>
+    </table>
+    <div>
+      <button type="submit" class="btn btn-cta">Remove Selected Emails</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

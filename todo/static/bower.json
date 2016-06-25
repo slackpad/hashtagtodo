@@ -1,0 +1,10 @@
+{
+  "name": "hashtagtodo-ui",
+  "description": "Todo list manager for Google Calendar",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "highcharts": "~4.1.8"
+  }
+}

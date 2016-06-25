@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+  {% if result.error %}
+    <div class="alert alert-danger" role="alert">
+      <strong>Problem Signing In</strong>
+      <p>There was a problem signing you in or giving permissions to this application. Please <a href="/login/google">give it another try</a>.</p>
+      {% if result.error.message %}
+        <p>Message from server: {{ result.error.message }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}

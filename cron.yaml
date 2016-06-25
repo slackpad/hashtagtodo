@@ -1,0 +1,76 @@
+cron:
+- description: sync job 00:01
+  url: /api/v1/jobs/sync
+  schedule: every day 00:01
+- description: sync job 01:01
+  url: /api/v1/jobs/sync
+  schedule: every day 01:01
+- description: sync job 02:01
+  url: /api/v1/jobs/sync
+  schedule: every day 02:01
+- description: sync job 03:01
+  url: /api/v1/jobs/sync
+  schedule: every day 03:01
+- description: sync job 04:01
+  url: /api/v1/jobs/sync
+  schedule: every day 04:01
+- description: sync job 05:01
+  url: /api/v1/jobs/sync
+  schedule: every day 05:01
+- description: sync job 06:01
+  url: /api/v1/jobs/sync
+  schedule: every day 06:01
+- description: sync job 07:01
+  url: /api/v1/jobs/sync
+  schedule: every day 07:01
+- description: sync job 08:01
+  url: /api/v1/jobs/sync
+  schedule: every day 08:01
+- description: sync job 09:01
+  url: /api/v1/jobs/sync
+  schedule: every day 09:01
+- description: sync job 10:01
+  url: /api/v1/jobs/sync
+  schedule: every day 10:01
+- description: sync job 11:01
+  url: /api/v1/jobs/sync
+  schedule: every day 11:01
+- description: sync job 12:01
+  url: /api/v1/jobs/sync
+  schedule: every day 12:01
+- description: sync job 13:01
+  url: /api/v1/jobs/sync
+  schedule: every day 13:01
+- description: sync job 14:01
+  url: /api/v1/jobs/sync
+  schedule: every day 14:01
+- description: sync job 15:01
+  url: /api/v1/jobs/sync
+  schedule: every day 15:01
+- description: sync job 16:01
+  url: /api/v1/jobs/sync
+  schedule: every day 16:01
+- description: sync job 17:01
+  url: /api/v1/jobs/sync
+  schedule: every day 17:01
+- description: sync job 18:01
+  url: /api/v1/jobs/sync
+  schedule: every day 18:01
+- description: sync job 19:01
+  url: /api/v1/jobs/sync
+  schedule: every day 19:01
+- description: sync job 20:01
+  url: /api/v1/jobs/sync
+  schedule: every day 20:01
+- description: sync job 21:01
+  url: /api/v1/jobs/sync
+  schedule: every day 21:01
+- description: sync job 22:01
+  url: /api/v1/jobs/sync
+  schedule: every day 22:01
+- description: sync job 23:01
+  url: /api/v1/jobs/sync
+  schedule: every day 23:01
+- description: stats rollup
+  url: /api/v1/jobs/rollup
+  schedule: every 24 hours

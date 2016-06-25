@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+  <title>HashtagTodo Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/admin/dashboard">HashtagTodo</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" onclick="$('#sign-out').submit(); return false;">Sign out ({{ g.user.email }})</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" action="/admin/user/search" method="get">
+          <input name="q" type="text" value="{{ request.args.get('q', '') }}" class="form-control" placeholder="Find User">
+        </form>
+      </div>
+    </div>
+    <form id="sign-out" action="/logout" method="post">
+      <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+    </form>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li {% if request.endpoint.endswith('dashboard') %}class="active"{% endif %}><a href="/admin/dashboard">Dashboard</a></li>
+          <li {% if request.endpoint.endswith('_user') %}class="active"{% endif %}><a href="/admin/user/search">Users</a></li>
+          <li {% if request.endpoint.endswith('freemium') %}class="active"{% endif %}><a href="/admin/freemium">Freemium</a></li>
+          <li><a href="/mapreduce">Mapreduce <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a></li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+{% with messages = get_flashed_messages() %}
+{% for message in messages %}
+        <div class="alert alert-info alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          {{ message }}
+        </div>
+{% endfor %}
+{% endwith %}
+        {% block body %}{% endblock %}
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/static/bower_components/highcharts/highcharts.js"></script>
+  <script type="text/javascript" src="/static/bower_components/highcharts/modules/exporting.js"></script>
+  {% block script %}{% endblock %}
+</body>
+</html>
+

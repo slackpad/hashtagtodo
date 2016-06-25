@@ -1,0 +1,42 @@
+{% extends "admin.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h4>Found {{ extra.total }} result(s) for query "{{ request.args.get('q', '') }}" {% if extra.total != extra.shown %}(showing {{ extra.shown }}){% endif %}</h4>
+<p>To save resources, counts won't be accurate for any result set >1000 users.</p>
+<table class="table table-striped">
+  <thead>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Email</th>
+    <th>Created</th>
+    <th>Manage</th>
+  </thead>
+  <tbody>
+{% for result in results %}
+    <tr>
+      <td>
+        {{ result.last_name }}
+      </td>
+      <td>
+        {{ result.first_name }}
+      </td>
+      <td>
+        {{ result.email }}
+      </td>
+      <td>
+        {{ result.created }}
+      </td>
+      <td>
+        <a href="{{ result.link }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

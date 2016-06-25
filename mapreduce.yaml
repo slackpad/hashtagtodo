@@ -1,0 +1,15 @@
+mapreduce:
+- name: index
+  mapper:
+    input_reader: mapreduce.input_readers.DatastoreInputReader
+    handler: todo.pipelines.IndexPipeline.map
+    params:
+    - name: entity_kind
+      default: todo.models.user.User
+- name: mail
+  mapper:
+    input_reader: mapreduce.input_readers.DatastoreInputReader
+    handler: todo.pipelines.MailPipeline.map
+    params:
+    - name: entity_kind
+      default: todo.models.user.User

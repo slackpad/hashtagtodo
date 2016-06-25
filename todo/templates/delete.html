@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% include 'topnav.html' %}
+<div class="container">
+  <h3>Thanks for Trying HashtagTodo</h3>
+  <p>This won't delete anything from your Google Calendar.</p>
+  <form action="/account/delete" method="post">
+    <input name="_csrf_token" type="hidden" value="{{ session['_csrf_token'] }}">
+    <div class="form-group">
+      <textarea class="form-control" name="feedback" rows="3" placeholder="Please let us know why you're leaving."></textarea>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-danger">Close my account</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

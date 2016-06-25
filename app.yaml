@@ -1,0 +1,39 @@
+application: hashtagtodo
+module: default
+version: 9
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: todo/static/favicon.ico
+  upload: todo/static/favicon\.ico
+- url: /static/bower_components
+  static_dir: todo/static/bower_components
+  secure: always
+- url: /assets
+  static_dir: todo/static/assets
+  secure: always
+- url: /robots.txt
+  static_files: todo/static/robots.txt
+  upload: todo/static/robots.txt
+  secure: always
+- url: /index.html
+  static_files: todo/static/index.html
+  upload: todo/static/index.html
+  secure: always
+- url: /mapreduce/pipeline/images
+  static_dir: generated/python/pipeline/ui/images
+- url: /mapreduce(/.*)?
+  script: mapreduce.main.APP
+  login: admin
+- url: /.*
+  script: todo.app
+  secure: always
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
