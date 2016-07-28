@@ -6,7 +6,7 @@ HashtagTodo is an application that manages your todos inside of a Google Calenda
 Getting Started
 ---------------
 
-This is designed to run in Google App Engine. You'll need to set up an account there in order to run in production. Note that the Google Calendar push notifications require you to enable SSL.
+This is designed to run in Google App Engine. You'll need to set up an account there in order to run in production. Note that the Google Calendar push notifications require you to enable TLS.
 
 The only step required before running in development or production is to edit the [`todo/config.py`](https://github.com/slackpad/hashtagtodo-open/blob/master/todo/config.py) file and supply the required values there. It's recommended that you don't check this file in with real values, since it contains sensitive information. Once that's filled in, run a development server to test your changes.
 
