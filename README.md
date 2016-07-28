@@ -1,7 +1,7 @@
 HashtagTodo
 -----------
 
-HashtagTodo is an application that manages your todos inside of a Google Calendar. You make items with `#todo` in the summary and the back end will pick them up and start managing them. If items aren't checked off on the day they are due then they will get rolled forward at midnight.
+HashtagTodo is an application that manages your todos inside of a Google Calendar. You make items with `#todo` in the summary and the back end will pick them up and start managing them. If items aren't checked off by putting an `x` in the box that's created, then on the day they are due then they will get rolled forward at midnight. This works all with regular calendar entries so it's functional anywhere you can access your Google Calendar.
 
 Getting Started
 ---------------
