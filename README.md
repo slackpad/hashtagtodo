@@ -15,4 +15,7 @@ Running a Development Server
 
 Just run `make develop` and it will start a server that will watch for files changes as you edit and apply the changes immediately.
 
+Pushing Live
+------------
+
 If you have the right credentials, `make production` will deploy the application to Google App Engine.
