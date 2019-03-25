@@ -1,6 +1,6 @@
 arrow==0.4.4
 authomatic==0.0.8
-Flask==0.10
+Flask==0.12.3
 flask-jsonpify==1.5.0
 google-api-python-client==1.2
 GoogleAppEngineMapReduce==1.9.22.0
