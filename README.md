@@ -1,3 +1,5 @@
+*This is pretty obsolete! I created a port of this to Google Apps Script that you can run for free - check out [HashTagTodo Redux](https://github.com/slackpad/hashtagtodo-redux)!*
+
 HashtagTodo
 -----------
 
