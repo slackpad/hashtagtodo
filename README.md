@@ -1,4 +1,4 @@
-*This is really obsolete. I created a port of this to Google Apps Script that you can run for free - check out [HashTagTodo Redux](https://github.com/slackpad/hashtagtodo-redux)!*
+*This is really obsolete. I created a port of this to Google Apps Script that you can run for free - check out [HashtagTodo Redux](https://github.com/slackpad/hashtagtodo-redux)!*
 
 ---
 
